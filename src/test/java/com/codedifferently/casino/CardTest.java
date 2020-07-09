@@ -7,14 +7,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CardTest {
-
+public class CardTest 
+{
     @Test
-    public void cardConstructorTest(){
-        
+    public void cardConstructorTest()
+    {
         //Given
         String expectedSuit = "";
         int expectedNumber = 0;
+
         //When
         Card card = new Card("", 0);
         String actualSuit = card.getSuit();
@@ -27,7 +28,8 @@ public class CardTest {
     }
 
     @Test
-    public void getSuitTest(){
+    public void getSuitTest()
+    {
         //Given
         String expected = "K";
 
@@ -40,7 +42,8 @@ public class CardTest {
     }
 
     @Test 
-    public void getNumberTest(){
+    public void getNumberTest()
+    {
         //Given
         int expected = 11;
         int exp = 0;
@@ -56,3 +59,6 @@ public class CardTest {
         Assert.assertEquals(exp, act);
     }
 }
+
+
+

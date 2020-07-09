@@ -1,6 +1,7 @@
 package com.codedifferently.casino;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class PlayerTest 
@@ -12,7 +13,7 @@ public class PlayerTest
         String expectedName = "";
         int expectedAge = 0;
 
-        //When
+         //When
         Player player = new Player("", 0);
         String actualName = player.getName();
         int actualAge = player.getAge();
@@ -20,7 +21,6 @@ public class PlayerTest
         //Then
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedAge, actualAge);
-
     }
 
     @Test
@@ -51,7 +51,8 @@ public class PlayerTest
     
         //Then
         Assert.assertEquals(expected, actual); 
+
     }
-    
+
     
 }

@@ -1,10 +1,10 @@
 package com.codedifferently.casino;
 
 import org.junit.Test;
-
 import org.junit.Assert;
 
-public class GroupOfCardsTest {
+public class GroupOfCardsTest 
+{
     Card[] cards = {new Card("", 2), new Card("", 2) 
     ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
     ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
@@ -21,7 +21,8 @@ public class GroupOfCardsTest {
     ,new Card("A", 11), new Card("A", 11)};
 
     @Test
-    public void groupOfCardsConstructorTest(){
+    public void groupOfCardsConstructorTest()
+    {
         //Given
         Card[] expected = cards;
         int expectedNum = expected.length;
@@ -37,8 +38,8 @@ public class GroupOfCardsTest {
     }
 
     @Test
-    public void getCurrentSizeTest(){
-
+    public void getCurrentSizeTest()
+    {
         //Given
         int expectedSize = 52;
         String expectedSuit = "";
@@ -52,4 +53,18 @@ public class GroupOfCardsTest {
         Assert.assertEquals(expectedSize, actualSize);
     }
 
+    @Test
+    public void getCardsTest()
+    {
+        //Given
+        Card[] expected = cards;
+
+        //When
+        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
+        Card[] actual = groupOfCards.getCards();
+
+        //Then
+        Assert.assertArrayEquals(expected, actual);
+
     }
+}

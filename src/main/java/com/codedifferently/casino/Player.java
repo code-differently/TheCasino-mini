@@ -12,8 +12,8 @@ public class Player
     public Player(String name, int age)
     {
         this.name = name;
-        this.age = age;
-     }
+            this.age = age;
+    }
 
     public String getName()
     {
@@ -30,7 +30,7 @@ public class Player
         {
             return 0;
         }
-
     }
-    // Create gamble method after chip class is made  
+
+    // Create gamble method after chip class is made
 }
