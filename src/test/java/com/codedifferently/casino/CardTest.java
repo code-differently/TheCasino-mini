@@ -1,7 +1,5 @@
 package com.codedifferently.casino;
 
-
-public class Casino {
-
-
+public class CardTest {
+    
 }
