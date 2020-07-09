@@ -1,10 +1,10 @@
 package com.codedifferently.casino;
 
 import org.junit.Test;
-
 import org.junit.Assert;
 
-public class GroupOfCardsTest {
+
+public class DeckTest {
     Card[] cards = {new Card("", 2), new Card("", 2) 
     ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
     ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
@@ -19,47 +19,30 @@ public class GroupOfCardsTest {
     ,new Card("Q", 10), new Card("Q", 10), new Card("K", 10), new Card("K", 10) 
     ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
     ,new Card("A", 11), new Card("A", 11)};
-
-    @Test
-    public void groupOfCardsConstructorTest(){
+    
+    @Test 
+    public void deckConstructorTest(){
         //Given
         Card[] expected = cards;
-        int expectedNum = expected.length;
-
+        int expectedSize = expected.length;
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
-        int actualNum = groupOfCards.getCurrentSize();
-
+        Deck deck = new Deck(expected, expectedSize);
+        int actualSize = deck.getCurrentSize();
         //Then
         Assert.assertArrayEquals(expected, cards);
-        Assert.assertEquals(expectedNum, actualNum);
-
-    }
-
-    @Test
-    public void getCurrentSizeTest(){
-        //Given
-        int expectedSize = 52;
-        String expectedSuit = "";
-        int expectedNumber = 0;
-
-        //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
-        int actualSize = groupOfCards.getCurrentSize();
-        
-        //Then
         Assert.assertEquals(expectedSize, actualSize);
     }
+
     @Test
-    public void getCardsTest(){
+    public void shuffleTest(){
         //Given
-        Card[] expected = cards;
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
-        Card[] actual = groupOfCards.getCards();
+        Deck deck = new Deck(cards, cards.length);
+        deck.shuffle();
+        Card[] expected = deck.getCards();
+        Card[] actual = {new Card("", 100)};
         //Then
         Assert.assertArrayEquals(expected, actual);
-
     }
-
-    }
+    
+}

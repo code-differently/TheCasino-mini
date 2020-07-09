@@ -1,7 +1,5 @@
 package com.codedifferently.casino;
 
-import java.util.ArrayList;
-import java.util.List;
 
 class Card {
     private String suit;
@@ -31,7 +29,7 @@ public int getNumber(){
     }  
 } 
 class GroupOfCards{
-    private Card[] cards = {new Card("", 2), new Card("", 2) 
+    protected Card[] cards = {new Card("", 2), new Card("", 2) 
     ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
     ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
     ,new Card("", 4), new Card("", 4), new Card("", 5), new Card("", 5) 
@@ -46,11 +44,14 @@ class GroupOfCards{
     ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
     ,new Card("A", 11), new Card("A", 11)};
 
-    private int currentSize;
+    protected int currentSize;
 
     public GroupOfCards(Card[] cards, int currentSize){
         this.cards = cards;
         this.currentSize = currentSize;
+    }
+    public Card[] getCards(){
+        return this.cards;
     }
     public int getCurrentSize(){
         return this.cards.length;
