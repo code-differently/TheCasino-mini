@@ -1,35 +1,11 @@
 package com.codedifferently.casino;
 
+import org.junit.Test;
 
-class Card {
-    private String suit;
-    private int number;
+import org.junit.Assert;
 
-public Card(String suit, int number){
-    this.suit = suit;
-    this.number = number;
-}
-public String getSuit(){
-    return this.suit;
-}
-public int getNumber(){
-    int num = 0;
-    if(this.suit == "A"){
-        num = 11;
-        return num;
-    }
-    else if(this.suit == "K" || suit == "Q" || suit == "J"){
-        num = 10;
-        return num;
-    }
-    else if(this.number >= 2 && this.number <= 10){
-        num = this.number;
-    }
-    return num;
-    }  
-} 
-class GroupOfCards{
-    private Card[] cards = {new Card("", 2), new Card("", 2) 
+public class GroupOfCardsTest {
+    Card[] cards = {new Card("", 2), new Card("", 2) 
     ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
     ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
     ,new Card("", 4), new Card("", 4), new Card("", 5), new Card("", 5) 
@@ -44,13 +20,36 @@ class GroupOfCards{
     ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
     ,new Card("A", 11), new Card("A", 11)};
 
-    private int currentSize;
+    @Test
+    public void groupOfCardsConstructorTest(){
+        //Given
+        Card[] expected = cards;
+        int expectedNum = expected.length;
 
-    public GroupOfCards(Card[] cards, int currentSize){
-        this.cards = cards;
-        this.currentSize = currentSize;
+        //When
+        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
+        int actualNum = groupOfCards.getCurrentSize();
+
+        //Then
+        Assert.assertArrayEquals(expected, cards);
+        Assert.assertEquals(expectedNum, actualNum);
+
     }
-    public int getCurrentSize(){
-        return this.cards.length;
+
+    @Test
+    public void getCurrentSizeTest(){
+
+        //Given
+        int expectedSize = 52;
+        String expectedSuit = "";
+        int expectedNumber = 0;
+
+        //When
+        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
+        int actualSize = groupOfCards.getCurrentSize();
+        
+        //Then
+        Assert.assertEquals(expectedSize, actualSize);
     }
-}
+
+    }
