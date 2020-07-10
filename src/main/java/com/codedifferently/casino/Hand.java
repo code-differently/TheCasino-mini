@@ -5,11 +5,11 @@ import java.util.List;
 import com.codedifferently.casino.Card;
 
 public class Hand {
-    private List<Card> hand = new ArrayList<Card>();
+    private List<Card> hand;
     private int handSize;
 
-    public Hand(List<Card> hand, int handSize){
-        this.hand = hand;
+    public Hand(){
+        this.hand = new ArrayList<Card>();
         this.handSize = hand.size();
     }
     public List<Card> getHand(){
@@ -20,9 +20,9 @@ public class Hand {
     }
     public Card removeHand(Card card){
         Card heldCard = new Card("", 0);
-        if(this.handSize > 0){
+        if(this.hand.size() > 0){
             for(int i = 0; i < this.hand.size(); i++){
-                if(hand.get(i).getSuit() == card.getSuit() && hand.get(i).getNumber() == card.getNumber()){
+                if(this.hand.get(i).getSuit() == card.getSuit() && this.hand.get(i).getNumber() == card.getNumber()){
                     heldCard = this.hand.remove(i);
                 }
             }

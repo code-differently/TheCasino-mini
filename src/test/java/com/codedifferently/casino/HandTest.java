@@ -15,7 +15,7 @@ public class HandTest {
         int expectedSize = hand.size();
 
         //When
-        Hand hands = new Hand(hand, hand.size());
+        Hand hands = new Hand();
         List<Card> actual = hands.getHand();
         int actualSize = hands.getHandSize();
         //Then
@@ -26,7 +26,7 @@ public class HandTest {
     public void getHandTest(){
         //Given
         //When
-        Hand hands = new Hand(hand, hand.size());
+        Hand hands = new Hand();
         List<Card> actual = hands.getHand();
         //Then
         Assert.assertEquals(hand, actual);
@@ -36,7 +36,7 @@ public class HandTest {
         //Given
         int expectedSize = hand.size();
         //When
-        Hand hands = new Hand(hand, hand.size());
+        Hand hands = new Hand();
         int actualSize = hands.getHandSize();
         //Then
         Assert.assertEquals(expectedSize, actualSize);
@@ -44,12 +44,12 @@ public class HandTest {
     @Test
     public void removeHandTest(){
         //Given
-        hand.add(new Card("K", 10));
-        hand.add(new Card("", 2));
         int expectedSize = 1;
         //When
         Card newCard = new Card("", 2);
-        Hand hands = new Hand(hand, hand.size());
+        Hand hands = new Hand();
+        hands.addHand(new Card("K", 10));
+        hands.addHand(new Card("", 2));
         hands.removeHand(newCard);
         int actualSize = hands.getHandSize();
         //Then

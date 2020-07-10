@@ -36,7 +36,7 @@ class GroupOfCards{
 
     public GroupOfCards(List<Card> cards, int currentSize){
         this.cards = cards;
-        this.currentSize = currentSize;
+        this.currentSize = cards.size();
     }
 
     public void cards(){
