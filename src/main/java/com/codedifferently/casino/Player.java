@@ -13,9 +13,11 @@ public class Player {
     private List<Chip> myChips;
 
 public Player(String name, int age){
+    this.chip = new Chip();
+    this.hand = new Hand();
+    this.card = new Card("", 0);
     this.name = name;
     this.age = age;
-    this.hand.getHand();
     this.myChips = new ArrayList<Chip>();
 }
 
@@ -30,10 +32,16 @@ public int getAge(){
     else{
         return 0;
     }
-
 }
+public void addCards(Card card){
+    this.hand.getHand().add(card);
+}
+
 public List<Card> getMyCards(){
     return this.hand.getHand();
+}
+public int getMyCardAmount(){
+    return this.hand.getHandSize();
 }
 
 public void giveCards(Player player, Card card){
@@ -48,6 +56,10 @@ public void giveCards(Player player, Card card){
     }
     
 }
+public void addChips(Chip chip){
+    this.myChips.add(chip);
+}
+
 public int getMyChipAmount(){
     return this.myChips.size();
 }
@@ -55,7 +67,7 @@ public int getMyChipAmount(){
 public void gamble(int amountOfChips){
     if(this.myChips.size() > 0){
         for(int i = 0; i < amountOfChips; i++){
-            this.myChips.remove(chip);
+            this.myChips.remove(0);
         }
     } 
 }
