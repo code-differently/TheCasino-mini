@@ -38,7 +38,10 @@ public void giveCards(Player player, Card card){
     
 }
 
-// Create gamble method after chip class is made
+public int chip(){
+    
+}
 
     
+
 }

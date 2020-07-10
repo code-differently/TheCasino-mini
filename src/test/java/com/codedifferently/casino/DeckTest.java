@@ -1,35 +1,27 @@
 package com.codedifferently.casino;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 
 
 public class DeckTest {
-    Card[] cards = {new Card("", 2), new Card("", 2) 
-    ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
-    ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
-    ,new Card("", 4), new Card("", 4), new Card("", 5), new Card("", 5) 
-    ,new Card("", 5), new Card("", 5), new Card("", 6), new Card("", 6) 
-    ,new Card("", 6), new Card("", 6), new Card("", 7), new Card("", 7) 
-    ,new Card("", 7), new Card("", 7), new Card("", 8), new Card("", 8) 
-    ,new Card("", 8), new Card("", 8), new Card("", 9), new Card("", 9) 
-    ,new Card("", 9), new Card("", 9), new Card("", 10), new Card("", 10) 
-    ,new Card("", 10), new Card("", 10), new Card("J", 10), new Card("J", 10) 
-    ,new Card("J", 10), new Card("J", 10), new Card("Q", 10), new Card("Q", 10) 
-    ,new Card("Q", 10), new Card("Q", 10), new Card("K", 10), new Card("K", 10) 
-    ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
-    ,new Card("A", 11), new Card("A", 11)};
+    List<Card> cards = new ArrayList<Card>();
     
     @Test 
     public void deckConstructorTest(){
         //Given
-        Card[] expected = cards;
-        int expectedSize = expected.length;
+        List<Card> expected = cards;
+        int expectedSize = expected.size();
         //When
-        Deck deck = new Deck(expected, expectedSize);
+        Deck deck = new Deck(cards, cards.size());
+        List<Card> actual = deck.getCards();
         int actualSize = deck.getCurrentSize();
         //Then
-        Assert.assertArrayEquals(expected, cards);
+        Assert.assertEquals(expected, actual);
         Assert.assertEquals(expectedSize, actualSize);
     }
 
@@ -37,12 +29,43 @@ public class DeckTest {
     public void shuffleTest(){
         //Given
         //When
-        Deck deck = new Deck(cards, cards.length);
+        Deck deck = new Deck(cards, cards.size());
         deck.shuffle();
-        Card[] expected = deck.getCards();
-        Card[] actual = expected;
+        List<Card> expected = deck.getCards();
+        int expectedSize = 52;
+        List<Card> actual = expected;
+        int actualSize = deck.getCurrentSize();
         //Then
-        Assert.assertArrayEquals(expected, actual);
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expectedSize, actualSize);
+    }
+    @Test
+    public void removeCardTest(){
+        //Given
+        int expected = 51;
+
+        //When
+        Deck deck = new Deck(cards, cards.size());
+        deck.shuffle();
+        deck.removeCard();
+        int actual = deck.getCurrentSize();
+        //Then
+        Assert.assertEquals(expected, actual);
+    } 
+    @Test
+    public void resetDeck(){
+        //Given
+        int expectedLength = 52;
+        //When
+        List<Card> array = new ArrayList<Card>();
+        Deck deck = new Deck(array, array.size());
+        deck.resetDeck();
+        List<Card> expected = array;
+        List<Card> actual = deck.getCards();
+        int actualLength = deck.getCurrentSize();
+        //Then
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expectedLength, actualLength);
     }
     
 }

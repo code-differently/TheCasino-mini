@@ -2,49 +2,35 @@ package com.codedifferently.casino;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 
 public class GroupOfCardsTest {
-    Card[] cards = {new Card("", 2), new Card("", 2) 
-    ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
-    ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
-    ,new Card("", 4), new Card("", 4), new Card("", 5), new Card("", 5) 
-    ,new Card("", 5), new Card("", 5), new Card("", 6), new Card("", 6) 
-    ,new Card("", 6), new Card("", 6), new Card("", 7), new Card("", 7) 
-    ,new Card("", 7), new Card("", 7), new Card("", 8), new Card("", 8) 
-    ,new Card("", 8), new Card("", 8), new Card("", 9), new Card("", 9) 
-    ,new Card("", 9), new Card("", 9), new Card("", 10), new Card("", 10) 
-    ,new Card("", 10), new Card("", 10), new Card("J", 10), new Card("J", 10) 
-    ,new Card("J", 10), new Card("J", 10), new Card("Q", 10), new Card("Q", 10) 
-    ,new Card("Q", 10), new Card("Q", 10), new Card("K", 10), new Card("K", 10) 
-    ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
-    ,new Card("A", 11), new Card("A", 11)};
-
+    List<Card> cards = new ArrayList();
     @Test
     public void groupOfCardsConstructorTest(){
         //Given
-        Card[] expected = cards;
-        int expectedNum = expected.length;
-
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
+        GroupOfCards groupOfCards = new GroupOfCards(cards, 0);
+        List<Card> expected = cards;
+        int expectedNum = 0;
+        List<Card> actual = groupOfCards.getCards();
         int actualNum = groupOfCards.getCurrentSize();
 
         //Then
-        Assert.assertArrayEquals(expected, cards);
+        Assert.assertEquals(expected, actual);
         Assert.assertEquals(expectedNum, actualNum);
-
     }
 
     @Test
     public void getCurrentSizeTest(){
         //Given
-        int expectedSize = 52;
-        String expectedSuit = "";
-        int expectedNumber = 0;
+        int expectedSize = 0;
 
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
+        GroupOfCards groupOfCards = new GroupOfCards(cards, 0);
         int actualSize = groupOfCards.getCurrentSize();
         
         //Then
@@ -53,13 +39,25 @@ public class GroupOfCardsTest {
     @Test
     public void getCardsTest(){
         //Given
-        Card[] expected = cards;
+        List<Card> expected = cards;
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.length);
-        Card[] actual = groupOfCards.getCards();
+        GroupOfCards groupOfCards = new GroupOfCards(cards, 0);
+        List<Card> actual = groupOfCards.getCards();
         //Then
-        Assert.assertArrayEquals(expected, actual);
+        Assert.assertEquals(expected, actual);
 
     }
+    @Test
+    public void cardsTest(){
+        //Given
+        //When
 
+        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.size());
+        groupOfCards.cards();
+        List<Card> expected = cards;
+        List<Card> actual = groupOfCards.getCards();
+        //Then
+        Assert.assertEquals(expected, actual);
     }
+
+}

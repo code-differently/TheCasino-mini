@@ -1,5 +1,7 @@
 package com.codedifferently.casino;
 
+import java.util.ArrayList;
+import java.util.List;
 
 class Card {
     private String suit;
@@ -29,170 +31,40 @@ public int getNumber(){
     }  
 } 
 class GroupOfCards{
-    protected Card[] cards = {new Card("", 2), new Card("", 2) 
-    ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
-    ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
-    ,new Card("", 4), new Card("", 4), new Card("", 5), new Card("", 5) 
-    ,new Card("", 5), new Card("", 5), new Card("", 6), new Card("", 6) 
-    ,new Card("", 6), new Card("", 6), new Card("", 7), new Card("", 7) 
-    ,new Card("", 7), new Card("", 7), new Card("", 8), new Card("", 8) 
-    ,new Card("", 8), new Card("", 8), new Card("", 9), new Card("", 9) 
-    ,new Card("", 9), new Card("", 9), new Card("", 10), new Card("", 10) 
-    ,new Card("", 10), new Card("", 10), new Card("J", 10), new Card("J", 10) 
-    ,new Card("J", 10), new Card("J", 10), new Card("Q", 10), new Card("Q", 10) 
-    ,new Card("Q", 10), new Card("Q", 10), new Card("K", 10), new Card("K", 10) 
-    ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
-    ,new Card("A", 11), new Card("A", 11)};
-
+    protected List<Card> cards = new ArrayList<Card>();
     protected int currentSize;
 
-    public GroupOfCards(Card[] cards, int currentSize){
+    public GroupOfCards(List<Card> cards, int currentSize){
         this.cards = cards;
-        this.currentSize = currentSize;
+        this.currentSize = cards.size();
     }
-    public Card[] getCards(){
+
+    public void cards(){
+        Card[] cardsArray = {new Card("", 2), new Card("", 2) 
+        ,new Card("", 2), new Card("", 2), new Card("", 3), new Card("", 3) 
+        ,new Card("", 3), new Card("", 3), new Card("", 4), new Card("", 4) 
+        ,new Card("", 4), new Card("", 4), new Card("", 5), new Card("", 5) 
+        ,new Card("", 5), new Card("", 5), new Card("", 6), new Card("", 6) 
+        ,new Card("", 6), new Card("", 6), new Card("", 7), new Card("", 7) 
+        ,new Card("", 7), new Card("", 7), new Card("", 8), new Card("", 8) 
+        ,new Card("", 8), new Card("", 8), new Card("", 9), new Card("", 9) 
+        ,new Card("", 9), new Card("", 9), new Card("", 10), new Card("", 10) 
+        ,new Card("", 10), new Card("", 10), new Card("J", 10), new Card("J", 10) 
+        ,new Card("J", 10), new Card("J", 10), new Card("Q", 10), new Card("Q", 10) 
+        ,new Card("Q", 10), new Card("Q", 10), new Card("K", 10), new Card("K", 10) 
+        ,new Card("K", 10), new Card("K", 10), new Card("A", 11), new Card("A", 11) 
+        ,new Card("A", 11), new Card("A", 11)};
+
+        for(int i = 0; i < cardsArray.length; i++){
+            this.cards.add(cardsArray[i]);
+        }
+    }
+
+    public List<Card> getCards(){
         return this.cards;
     }
+
     public int getCurrentSize(){
-        return this.cards.length;
+        return this.cards.size();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
