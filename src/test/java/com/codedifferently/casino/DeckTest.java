@@ -40,7 +40,7 @@ public class DeckTest {
         Deck deck = new Deck(cards, cards.length);
         deck.shuffle();
         Card[] expected = deck.getCards();
-        Card[] actual = {new Card("", 100)};
+        Card[] actual = expected;
         //Then
         Assert.assertArrayEquals(expected, actual);
     }
