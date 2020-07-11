@@ -31,11 +31,11 @@ public int getNumber(){
     }  
 } 
 class GroupOfCards{
-    protected List<Card> cards = new ArrayList<Card>();
+    protected List<Card> cards;
     protected int currentSize;
 
-    public GroupOfCards(List<Card> cards, int currentSize){
-        this.cards = cards;
+    public GroupOfCards(){
+        this.cards = new ArrayList<Card>();
         this.currentSize = cards.size();
     }
 

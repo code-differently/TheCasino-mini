@@ -63,6 +63,9 @@ public void addChips(Chip chip){
 public int getMyChipAmount(){
     return this.myChips.size();
 }
+public List<Chip> getMyChips(){
+    return this.myChips;
+}
 
 public void gamble(int amountOfChips){
     if(this.myChips.size() > 0){

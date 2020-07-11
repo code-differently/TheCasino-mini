@@ -6,26 +6,25 @@ import java.util.List;
 
 public class Deck extends GroupOfCards {
 
-    public Deck(List<Card> cards, int currentSize) {
-        super(cards, currentSize);
+    public Deck() {
+        super();
     }
     public void shuffle(){
-        GroupOfCards groupOfCards = new GroupOfCards(cards, currentSize);
+        GroupOfCards groupOfCards = new GroupOfCards();
         groupOfCards.cards();
-        Collections.shuffle(cards);
-        this.cards = cards;
+        Collections.shuffle(groupOfCards.getCards());
+        this.cards = groupOfCards.getCards();
     } 
     public Card removeCard(){
         Card card = new Card("", 0);
-        GroupOfCards groupOfCards = new GroupOfCards(cards, currentSize);
-        if(groupOfCards.currentSize > 0){
-        card = groupOfCards.getCards().remove(0);
+        if(this.cards.size() > 0){
+        card = this.cards.remove(0);
         }
         return card;
     }
     public void resetDeck(){
-        GroupOfCards groupOfCards = new GroupOfCards(cards, currentSize);
+        GroupOfCards groupOfCards = new GroupOfCards();
         groupOfCards.cards();
-        this.cards = cards;
+        this.cards = groupOfCards.getCards();
     }
 }

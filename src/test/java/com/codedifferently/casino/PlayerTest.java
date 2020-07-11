@@ -57,10 +57,10 @@ public class PlayerTest {
     @Test 
     public void getMyCardsTest(){
         //Given
-        List<Card> expected = hand;
+        int expected = 0;
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(hand, 0);
-        List<Card> actual = groupOfCards.getCards();
+        Player player = new Player("Joe", 24);
+        int actual = player.getMyCardAmount();
         //Then
         Assert.assertEquals(expected, actual);
     }
@@ -68,10 +68,9 @@ public class PlayerTest {
     public void getMyCardAmountTest(){
         //Given
         int expectedSize = 0;
-
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(hand, 0);
-        int actualSize = groupOfCards.getCurrentSize();
+        Player player = new Player("Joe", 24);
+        int actualSize = player.getMyCardAmount();
         
         //Then
         Assert.assertEquals(expectedSize, actualSize);
@@ -100,9 +99,35 @@ public class PlayerTest {
         int expectedSize = 0;
 
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(hand, 0);
-        int actualSize = groupOfCards.getCurrentSize();
+        Player player = new Player("Joe", 27);
+        int actualSize = player.getMyChipAmount();
         
+        //Then
+        Assert.assertEquals(expectedSize, actualSize);
+    }
+    @Test
+    public void getMyChipsTest(){
+        //Given
+        int expectedSize = 1;
+
+        //When
+        Player player = new Player("Joe", 27);
+        player.addChips(new Chip());
+        int actualSize = player.getMyChipAmount();
+            
+        //Then
+        Assert.assertEquals(expectedSize, actualSize);
+    }
+    @Test
+    public void addChipsTest(){
+        //Given
+        int expectedSize = 1;
+
+        //When
+        Player player = new Player("Joe", 27);
+        player.addChips(new Chip());
+        int actualSize = player.getMyChipAmount();
+            
         //Then
         Assert.assertEquals(expectedSize, actualSize);
     }

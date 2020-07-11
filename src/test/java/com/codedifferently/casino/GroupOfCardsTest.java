@@ -13,7 +13,7 @@ public class GroupOfCardsTest {
     public void groupOfCardsConstructorTest(){
         //Given
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, 0);
+        GroupOfCards groupOfCards = new GroupOfCards();
         List<Card> expected = cards;
         int expectedNum = 0;
         List<Card> actual = groupOfCards.getCards();
@@ -30,7 +30,7 @@ public class GroupOfCardsTest {
         int expectedSize = 0;
 
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, 0);
+        GroupOfCards groupOfCards = new GroupOfCards();
         int actualSize = groupOfCards.getCurrentSize();
         
         //Then
@@ -41,7 +41,7 @@ public class GroupOfCardsTest {
         //Given
         List<Card> expected = cards;
         //When
-        GroupOfCards groupOfCards = new GroupOfCards(cards, 0);
+        GroupOfCards groupOfCards = new GroupOfCards();
         List<Card> actual = groupOfCards.getCards();
         //Then
         Assert.assertEquals(expected, actual);
@@ -52,10 +52,10 @@ public class GroupOfCardsTest {
         //Given
         //When
 
-        GroupOfCards groupOfCards = new GroupOfCards(cards, cards.size());
+        GroupOfCards groupOfCards = new GroupOfCards();
         groupOfCards.cards();
-        List<Card> expected = cards;
-        List<Card> actual = groupOfCards.getCards();
+        int expected = 52;
+        int actual = groupOfCards.getCurrentSize();
         //Then
         Assert.assertEquals(expected, actual);
     }
