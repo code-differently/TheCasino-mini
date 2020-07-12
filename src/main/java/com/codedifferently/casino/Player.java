@@ -34,7 +34,8 @@ public int getAge(){
     }
 }
 public void addCards(Card card){
-    this.hand.getHand().add(card);
+    this.hand.addHand(card);
+   // this.hand.getHand().add(card);
 }
 
 public List<Card> getMyCards(){
@@ -51,8 +52,15 @@ public void giveCards(Player player, Card card){
             this.hand.getHand().get(i).getNumber() == card.getNumber())
             {
                 player.getMyCards().add(this.hand.removeHand(this.hand.getHand().get(i)));
+            
             }
         }
+        // List<Card> checkHand=this.hand.getHand();
+        // for (Card currentCard : checkHand) {
+        //     if(card.getNumber()==currentCard.getNumber())
+        //         if(card.getSuit()==currentCard.getSuit())
+        //             player.addCards(this.hand.removeHand(currentCard));
+        // }
     }
     
 }

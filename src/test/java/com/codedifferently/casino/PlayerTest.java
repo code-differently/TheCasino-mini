@@ -54,6 +54,17 @@ public class PlayerTest {
     Assert.assertEquals(expected, actual); 
 
     }
+    @Test
+    public void addCardsTest(){
+        //Given
+        int expected = 1;
+        //When
+        Player player = new Player("Joe", 24);
+        player.addCards(new Card("K", 10));
+        int actual = player.getMyCardAmount();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
     @Test 
     public void getMyCardsTest(){
         //Given
