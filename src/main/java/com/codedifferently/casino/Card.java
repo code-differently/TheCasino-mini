@@ -16,7 +16,7 @@ public class Card {
         return suit;
     }
 
-    public String createCard() {
+    public String newCard() {
         return rank.getRank() + suit.getSuit();
     }
 
