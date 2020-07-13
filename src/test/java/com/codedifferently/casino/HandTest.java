@@ -51,7 +51,7 @@ public class HandTest {
         hands.addHand(new Card("K", 10));
         hands.addHand(new Card("", 2));
         hands.removeHand(newCard);
-        int actualSize = hands.getHandSize();
+        int actualSize = hands.getHandSize();       
         //Then
         Assert.assertEquals(expectedSize, actualSize);
     }

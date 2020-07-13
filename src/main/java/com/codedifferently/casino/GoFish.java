@@ -34,21 +34,24 @@ public class GoFish extends CardGame {
     public void takeACard(Player goingFish){
         goingFish.addCards(this.dealer.removeCard());
     }
-    /* FOR REFERENCE ONLY
+    // FOR REFERENCE ONLY
     public static void main(String[]args){
         GoFish game = new GoFish();
         Card card = new Card("", 5);
         Player Bob = new Player("Bob", 21);
         Player Lil = new Player("Lil", 23);
+        Lil.getMyCards().add(new Card("", 5));
+        Lil.getMyCards().add(new Card("", 5));
+        Lil.getMyCards().add(new Card("", 5));
         game.addPlayers(Bob);
         game.addPlayers(Lil);
         game.goFish();
         System.out.println(Bob.getMyCardAmount());
         System.out.println(Lil.getMyCardAmount());
-        System.out.println(game.askForCards(Bob, Lil, card));
-        game.takeACard(Bob);
+        System.out.println(game.askForCards(Bob, Lil, new Card("", 5)));
         System.out.println(Bob.getMyCardAmount());
+        System.out.println(Lil.getMyCardAmount());
     }
-    */
+    
     
 }

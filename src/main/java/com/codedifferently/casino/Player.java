@@ -2,6 +2,7 @@ package com.codedifferently.casino;
 import com.codedifferently.casino.Chip;
 import com.codedifferently.casino.Hand;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Player {
@@ -46,24 +47,17 @@ public int getMyCardAmount(){
 }
 
 public void giveCards(Player player, Card card){
-    if(this.hand.getHandSize() > 0){
-        for(int i = 0; i < this.hand.getHandSize(); i++){
-            if(this.hand.getHand().get(i).getSuit() == card.getSuit() &&
-            this.hand.getHand().get(i).getNumber() == card.getNumber())
-            {
-                player.getMyCards().add(this.hand.removeHand(this.hand.getHand().get(i)));
-            
-            }
+        List<Card> newHand= this.hand.removeHand(card); //what is this the cards removed from the ha
+        
+        Iterator<Card> iter = newHand.iterator();
+        while(iter.hasNext()){
+            Card currentCard = iter.next();
+            player.addCards(currentCard); // or player.addCards(iter.next())
+            iter.remove();
         }
-        // List<Card> checkHand=this.hand.getHand();
-        // for (Card currentCard : checkHand) {
-        //     if(card.getNumber()==currentCard.getNumber())
-        //         if(card.getSuit()==currentCard.getSuit())
-        //             player.addCards(this.hand.removeHand(currentCard));
-        // }
+        
+
     }
-    
-}
 public void addChips(Chip chip){
     this.myChips.add(chip);
 }

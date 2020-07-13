@@ -100,6 +100,7 @@ public class PlayerTest {
         int expectedJoeCards = 2;
         int actualMillyCards = Milly.getMyCardAmount();
         int actualJoeCards = Joe.getMyCardAmount();
+    
         //Then
         Assert.assertEquals(expectedMillyCards, actualMillyCards);
         Assert.assertEquals(expectedJoeCards, actualJoeCards);

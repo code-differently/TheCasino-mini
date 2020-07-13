@@ -2,6 +2,9 @@ package com.codedifferently.casino;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.Iterator;
+
 import com.codedifferently.casino.Card;
 
 public class Hand {
@@ -18,21 +21,28 @@ public class Hand {
     public int getHandSize(){
         return this.hand.size();
     }
-    public Card removeHand(Card card){
-        Card heldCard = new Card("", 0);
-        if(this.hand.size() > 0){
-            for(int i = 0; i < this.hand.size(); i++){
-                if(this.hand.get(i).getSuit() == card.getSuit() && this.hand.get(i).getNumber() == card.getNumber()){
-                    heldCard = this.hand.remove(i);
-                }
+    public List<Card> removeHand(Card card){
+        List<Card>temp = new ArrayList<Card>();
+
+        Iterator<Card> iter = this.hand.iterator();
+        System.out.println("NEW HAND IS " +this.hand.toString());
+        while(iter.hasNext()){
+            Card currentCard = iter.next();
+            if(currentCard.getNumber() == card.getNumber()){
+                this.hand.remove(currentCard);
+                temp.add(currentCard);
+                iter.remove();
             }
         }
-        return heldCard;
+        System.out.println("TEMP HAND IS " +temp.toString());
+        return temp;
+
 
     }
     public void addHand(Card card){
         this.hand.add(card);
     }
+
 /*
     public String displayHand(){
         StringBuilder result = new StringBuilder("Cards in hand: \n");
