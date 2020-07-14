@@ -1,7 +1,7 @@
 package com.codedifferently.casino;
 
 public enum Suit {
-    Hearts("Heart"), Spades("Spades"),
+    Hearts("Hearts"), Spades("Spades"),
     Diamonds("Diamonds"), Clubs("Clubs");
 
     private final String suitValue;

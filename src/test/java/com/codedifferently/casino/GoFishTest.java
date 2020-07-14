@@ -1,4 +1,4 @@
 package com.codedifferently.casino;
 
-public class BlackJackTest {
+public class GoFishTest {
 }

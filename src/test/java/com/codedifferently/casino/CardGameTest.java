@@ -1,4 +1,4 @@
 package com.codedifferently.casino;
 
-public class Dealer {
+public class CardGameTest {
 }

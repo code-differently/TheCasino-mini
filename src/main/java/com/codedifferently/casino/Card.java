@@ -1,5 +1,6 @@
 package com.codedifferently.casino;
 
+
 public class Card {
     private Rank rank;
     private Suit suit;
@@ -8,6 +9,8 @@ public class Card {
         this.rank = rank;
         this.suit = suit;
     }
+
+
     public Rank getRank() {
         return rank;
     }
@@ -17,7 +20,9 @@ public class Card {
     }
 
     public String newCard() {
-        return rank.getRank() + suit.getSuit();
+        return (rank.getRank() +  suit.getSuit());
     }
 
 }
+
+//return val % 2==0 ? true:false

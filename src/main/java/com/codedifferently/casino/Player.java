@@ -32,8 +32,8 @@ public class Player {
         this.hand.add(card);
     }
 
-    public void removeCardFromHand(Card card) {
-        Card oldCard = new Card();
-    }
+    //public void removeCardFromHand(Card card) {
+        //Card oldCard = new Card();
+    //}
 
 }
