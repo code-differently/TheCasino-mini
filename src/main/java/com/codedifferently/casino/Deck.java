@@ -16,10 +16,6 @@ public class Deck {
         }
     }
 
-    //public ArrayList<Card> getDeck() {
-        //return this.deck;
-   //}
-
     public void shuffleCards() {
         Collections.shuffle(deck);
     }
@@ -27,7 +23,6 @@ public class Deck {
     public int numberOfCards() {
         return deck.size();
     }
-
 
     public Card removeCard() {
         if (deck.isEmpty()) {

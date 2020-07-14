@@ -10,7 +10,6 @@ public class Card {
         this.suit = suit;
     }
 
-
     public Rank getRank() {
         return rank;
     }
@@ -24,5 +23,3 @@ public class Card {
     }
 
 }
-
-//return val % 2==0 ? true:false
